@@ -225,6 +225,19 @@ nav {
   color: var(--text-light);
 }
 
+
+
+.popular__card {
+
+ 
+  transform: translateY(100px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.popular__card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 .client {
   background-color: var(--extra-light);
 }
