@@ -207,6 +207,7 @@
     <div class="container">
       <input type="checkbox" id="toggle">
   </div>
+  <div class="containerb">
     <header class="section__container header__container">
       <div class="header__image__container">
         <div class="header__content">
@@ -249,7 +250,7 @@
         </div>
       </div>
     </header>
-
+  </div>
     <style>
       *,
 *:before,
@@ -267,6 +268,23 @@ body{
     position: relative;
     margin-bottom: 30px;
 }
+
+.containerb {
+
+ 
+transform: translateY(100px);
+transition: opacity 2.4s ease, transform 2.4s ease;
+}
+
+.containerb.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+
+
+
+
 #toggle{
     -webkit-appearance: none;
     appearance: none;
@@ -309,6 +327,26 @@ p{
 }
     </style>
 <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+          const cards = document.querySelectorAll('.containerb');
+
+          const observer = new IntersectionObserver(entries => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('visible');
+                  }
+              });
+          });
+
+          cards.forEach(containerb => observer.observe(containerb));
+      });
+
+
+
+
+
+
   document.getElementById("toggle").addEventListener("click", function(){
     document.getElementsByTagName('body')[0].classList.toggle("dark-theme");
 });
@@ -379,7 +417,21 @@ p{
         </div>
       </div>
     </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const cards = document.querySelectorAll('.popular__card');
 
+          const observer = new IntersectionObserver(entries => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      entry.target.classList.add('visible');
+                  }
+              });
+          });
+
+          cards.forEach(popular__card => observer.observe(popular__card));
+      });
+  </script>
     
     <div class="banner">
       <div class="slider" style="--quantity: 8">
@@ -616,6 +668,10 @@ p{
     </div>
   </div>
 </section>
+
+
+
+
 
 <div class="gallery-containerr">
   <div class="itemm"></div>
